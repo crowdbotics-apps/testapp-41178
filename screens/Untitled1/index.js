@@ -13,8 +13,10 @@ const LoginScreen = () => {
 
   return <View style={styles.container}>
       <View style={styles.topContainer}>
-        <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
-        <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+        <View style={styles.column}>
+          <TextInput style={[styles.input, styles.halfWidth]} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
+          <TextInput style={[styles.input, styles.halfWidth]} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+        </View>
         <TouchableOpacity style={[styles.button, styles.sppbKRsD]} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
@@ -28,8 +30,9 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-start",
+    alignItems: "stretch",
+    justifyContent: "center",
+    // updated
     backgroundColor: "#fff",
     marginTop: 50
   },
@@ -38,14 +41,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  input: {
+  column: {
+    flexDirection: "column",
     width: "100%",
+    justifyContent: "space-between",
+    marginBottom: 20
+  },
+  input: {
     height: 50,
     padding: 10,
     borderWidth: 1,
     borderColor: "#ccc",
-    marginBottom: 20,
     borderRadius: 5
+  },
+  halfWidth: {
+    width: "80%"
   },
   button: {
     width: "80%",
