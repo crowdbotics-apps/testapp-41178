@@ -12,14 +12,16 @@ const LoginScreen = () => {
   };
 
   return <View style={styles.container}>
-      <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
-      <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
-      <TouchableOpacity style={[styles.button, styles.sppbKRsD]} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.forgotPassword} onPress={handleForgotPassword}>
-        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-      </TouchableOpacity>
+      <View style={styles.topContainer}>
+        <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" autoCapitalize="none" />
+        <TextInput style={styles.input} placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+        <TouchableOpacity style={[styles.button, styles.sppbKRsD]} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.forgotPassword} onPress={handleForgotPassword}>
+          <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+        </TouchableOpacity>
+      </View>
     </View>;
 };
 
@@ -27,11 +29,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff"
+    justifyContent: "flex-start",
+    backgroundColor: "#fff",
+    marginTop: 50
+  },
+  topContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
   input: {
-    width: "80%",
+    width: "100%",
     height: 50,
     padding: 10,
     borderWidth: 1,
